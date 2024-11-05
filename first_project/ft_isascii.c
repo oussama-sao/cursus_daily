@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oessaoud <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 16:56:26 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/10/23 17:00:46 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/03 23:38:21 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libc.h"
 
 int	ft_isascii(int a)
 {

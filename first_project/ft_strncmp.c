@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oessaoud <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 23:29:15 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/10/29 01:09:27 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/03 23:38:21 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libc.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

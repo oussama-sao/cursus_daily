@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oessaoud <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 15:56:34 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/10/27 16:34:37 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/03 23:38:21 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libc.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

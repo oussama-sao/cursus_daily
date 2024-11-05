@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 17:02:31 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/03 23:40:51 by oessaoud         ###   ########.fr       */
+/*   Created: 2024/11/03 22:48:03 by oessaoud          #+#    #+#             */
+/*   Updated: 2024/11/04 14:30:59 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
-int	ft_isprint(int a)
+char	*ft_strdup(const char *s1)
 {
-	if (a >= 32 && a <= 126)
-		return (1);
-	else
-		return (0);
+	char	*copy;
+	size_t	len_copy;
+
+	len_copy = ft_strlen(s1) + 1;
+	copy = malloc(len_copy);
+	if (!copy)
+		return (NULL);
+	ft_memcpy(copy, s1, len_copy);
+	return (copy);
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oessaoud <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 21:46:10 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/10/24 22:23:12 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/03 23:38:21 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libc.h"
 
 void	ft_bzero(void *s, size_t n)
 {

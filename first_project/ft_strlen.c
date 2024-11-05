@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oessaoud <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 17:32:36 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/10/23 17:54:10 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/04 18:44:42 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libc.h"
 
 size_t	ft_strlen(const char *s)
 {

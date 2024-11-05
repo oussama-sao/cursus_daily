@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 14:57:48 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/04 18:16:09 by oessaoud         ###   ########.fr       */
+/*   Created: 2024/11/04 11:56:07 by oessaoud          #+#    #+#             */
+/*   Updated: 2024/11/04 16:40:42 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	lend;
-	size_t	lens;
-	int		i;
+	char	*ptr;
+	size_t	len_s;
+	char	*empty;
 
-	lend = ft_strlen(dst);
-	lens = ft_strlen(src);
-	i = 0;
-	if (lend == dstsize)
-		return (dstsize + lens);
-	if (dstsize > 0)
+	len_s = ft_strlen(s);
+	if (!s)
+		return (NULL);
+	if (start >= len_s)
 	{
-		while (lend + i < dstsize - 1 && src[i])
-		{
-			dst[lend + i] = src[i];
-			i++;
-		}
-		dst[lend + i] = '\0';
+		empty = malloc(1);
+		if (empty)
+			empty[0] = '\0';
+		return (empty);
 	}
-	return (lend + lens);
+	if (start + len > len_s)
+		len = len_s - start;
+	ptr = malloc(len + 1);
+	if (!ptr)
+		return (NULL);
+	ft_memcpy(ptr, s + start, len);
+	ptr[len] = '\0';
+	return (ptr);
 }

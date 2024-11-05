@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 17:02:31 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/03 23:40:51 by oessaoud         ###   ########.fr       */
+/*   Created: 2024/11/04 21:40:16 by oessaoud          #+#    #+#             */
+/*   Updated: 2024/11/05 10:56:08 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
-
-int	ft_isprint(int a)
+#include "libft.h"
+#include <stdio.h>
+int main ()
 {
-	if (a >= 32 && a <= 126)
-		return (1);
-	else
-		return (0);
+	char const ha[] = "rea";
+	
+	char *p = (char *)ha;
+
+	p[0] = 'b';
+	
+	printf("\n%s",ha);
+	return (0);
 }
