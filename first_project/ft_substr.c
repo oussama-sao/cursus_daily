@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:56:07 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/04 16:40:42 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/06 18:10:45 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	len_s;
 	char	*empty;
 
-	len_s = ft_strlen(s);
 	if (!s)
 		return (NULL);
+	len_s = ft_strlen(s);
 	if (start >= len_s)
 	{
 		empty = malloc(1);
