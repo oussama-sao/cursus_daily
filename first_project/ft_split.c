@@ -6,11 +6,14 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 11:14:18 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/07 18:44:02 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/07 22:05:32 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
+#include <stddef.h>
+#include <assert.h>
 
 size_t	count_words(char const *s, char c)
 {
@@ -47,10 +50,10 @@ char	*get_words(const char *s, char c, size_t *start)
 		return (NULL);
 	len = 0;
 	while (s[*start] && s[*start] == c)
-		*start++;
-	while (s[*start + len] && s[start + len] != c)
+		(*start)++;
+	while (s[*start + len] && s[*start + len] != c)
 		len++;
-	if (!len)
+	if (len == 0)
 		return (NULL);
 	word = malloc(len + 1);
 	if (!word)
@@ -68,10 +71,10 @@ char	*get_words(const char *s, char c, size_t *start)
 
 void	free_all(char **tab, size_t	i)
 {
-	while (*i > 0)
+	while (i > 0)
 	{
 		i--;
-		free(tab[*i]);
+		free(tab[i]);
 	}
 	free(tab);
 }
@@ -104,3 +107,46 @@ char	**ft_split(char const *s, char c)
 	tab[i] = NULL;
 	return (tab);
 }
+
+/*
+// void test_ft_split(const char *s, char c, char **expected) {
+//     char **result = ft_split(s, c);
+//     int i = 0;
+    
+//     while (expected[i] != NULL && result[i] != NULL) {
+//         if (strcmp(result[i], expected[i]) != 0) {
+//             printf("Test failed for input: \"%s\". Expected: \"%s\", got: \"%s\".\n", s, expected[i], result[i]);
+//             return;
+//         }
+//         i++;
+//     }
+    
+//     if (expected[i] != NULL || result[i] != NULL) {
+//         printf("Test failed for input: \"%s\". Expected: end of array, got: \"%s\".\n", s, result[i]);
+//     } else {
+//         printf("Test passed for input: \"%s\".\n", s);
+//     }
+
+//     // Free the result array
+//     if (result) {
+//         int j = 0;
+//         while (result[j]) {
+//             free(result[j]);
+//             j++;
+//         }
+//         free(result);
+//     }
+// }
+
+// int main() {
+//     test_ft_split("hello world", ' ', (char *[]){"hello", "world", NULL});
+//     test_ft_split("", ' ', (char *[]) {NULL});
+//     test_ft_split("123,abc,456,def!", ',', (char *[]){"123", "abc", "456", "def!", NULL});
+//     test_ft_split("   ", ' ', (char *[]) {NULL});
+//     test_ft_split(",hello world,", ',', (char *[]){"hello world", NULL});
+//     test_ft_split("word word word word", ' ', (char *[]){"word", "word", "word", "word", NULL});
+//     test_ft_split("wordwordwordword", ' ', (char *[]){"wordwordwordword", NULL});
+
+//     return 0;
+// }
+*/
