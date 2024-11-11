@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 23:23:33 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/09 10:24:00 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/10 16:10:46 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(-n, fd);
+		n *= -1;
 	}
 	if (n >= 10)
 		ft_putnbr_fd(n / 10, fd);
