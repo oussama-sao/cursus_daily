@@ -6,11 +6,11 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:59:09 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/03 23:38:21 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/11 10:58:02 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 int	ft_tolower(int c)
 {

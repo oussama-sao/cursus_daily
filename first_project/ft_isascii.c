@@ -6,11 +6,11 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 16:56:26 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/03 23:38:21 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/11 10:52:41 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 int	ft_isascii(int a)
 {

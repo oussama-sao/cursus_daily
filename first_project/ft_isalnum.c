@@ -6,11 +6,11 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 16:43:07 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/03 22:33:36 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/11 10:56:55 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 int	ft_isalnum( int a )
 {

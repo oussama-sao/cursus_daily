@@ -6,11 +6,11 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 00:40:23 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/10 14:45:39 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/11 10:56:34 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {

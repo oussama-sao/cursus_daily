@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 10:59:22 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/08 13:23:58 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/11 11:11:54 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,20 @@ char	*ft_itoa(int n)
 	char	*number_in_char;
 	int		len;
 
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
 	len = len_int(n);
 	i = len;
 	number_in_char = malloc(sizeof(char) * (len + 1));
 	if (!number_in_char)
 		return (NULL);
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
 	if (n < 0)
 	{
 		number_in_char[0] = '-';
 		n *= -1;
 	}
-	if (n == 0)
-		return (ft_strdup("0"));
 	while (n > 0)
 	{
 		number_in_char[--i] = (n % 10) + '0';
