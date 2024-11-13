@@ -19,7 +19,7 @@ all : $(NAME)
 
 $(NAME) : $(SRC_OBJ)
 	$(AR) $(NAME) $(SRC_OBJ)
-bonus : $(SRC_BONUS)
+bonus : $(SRC_BONUS) $(SRC_OBJ)
 	$(AR) $(NAME) $(SRC_BONUS)
 %.o : %.c
 	$(CC) $(FLAG) -c $^ -o $@

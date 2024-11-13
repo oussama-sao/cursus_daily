@@ -6,13 +6,13 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 21:40:16 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/06 19:36:31 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:53:56 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_index(char const *s, char const *set, size_t *start)
+static size_t	ft_index(char const *s, char const *set, size_t *start)
 {
 	size_t	len_s;
 

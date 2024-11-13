@@ -6,14 +6,13 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 10:59:22 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/13 14:35:34 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:56:41 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-int	len_int(int i)
+static int	len_int(int i)
 {
 	int	count;
 
