@@ -13,19 +13,19 @@ RM = rm  -rf
 FLAG = -Werror -Wextra -Wall
 NAME = libft.a
 SRC_OBJ = $(SRC_FILES:.c=.o)
-SRC_BONUS = $(SRC_FILES:.c=.o)
+SRC_BONUS = $(BONUS_FILES:.c=.o)
 
 all : $(NAME)
 
 $(NAME) : $(SRC_OBJ)
 	$(AR) $(NAME) $(SRC_OBJ)
-bonus : $(SRC_BONUS) $(SRC_OBJ)
+bonus : $(SRC_BONUS)
 	$(AR) $(NAME) $(SRC_BONUS)
 %.o : %.c
 	$(CC) $(FLAG) -c $^ -o $@
 
 clean :
-	$(RM) $(SRC_OBJ)
+	$(RM) $(SRC_OBJ) $(SRC_BONUS)
 
 fclean : clean
 	$(RM) $(NAME)

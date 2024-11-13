@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 22:37:57 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/11 23:02:39 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/11 23:24:08 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }	t_list;
-t_list	*ft_lstnew_bonus(void *content);
+t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
