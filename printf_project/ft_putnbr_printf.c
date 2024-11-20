@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 23:38:59 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/19 23:41:53 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/20 16:15:51 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int	ft_putnbr_printf(int nbr)
 {
+	(void) nbr;
+	return (1);
 	
 }

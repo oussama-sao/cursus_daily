@@ -6,11 +6,11 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 23:23:45 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/19 23:25:43 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/20 19:09:16 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
 
 int	checkerror(int *count, int tmp_count, va_list lst)
 {
@@ -28,6 +28,7 @@ int	ft_witchformat(char current, va_list lst)
 	int	count;
 
 	count = 0;
+	
 	if (current == 'c')
 		count += ft_putchar_printf(va_arg(lst, int));
 	else if (current == 's')
@@ -55,22 +56,21 @@ int	ft_printf(char *str, ...)
 	int		i;
 	int		count;
 	int		tmp;
-	int		iserror;
 
 	count = 0;
 	i = 0;
 	va_start(args, str);
 	while (str[i])
 	{
+		tmp = 0;
 		if (str[i] == '%')
 		{
 			i++;
-			tmp += ft_witchformat(str[i], args);
+			tmp = ft_witchformat(str[i], args);
 		}
 		else
-			tmp += ft_putchar_printf(str[i]);
-		iserror = checkerror(&count, tmp, args);
-		if (iserror < 0)
+			tmp = ft_putchar_printf(str[i]);
+		if (checkerror(&count, tmp, args) < 0)
 			return (-1);
 		i++;
 	}
@@ -78,7 +78,9 @@ int	ft_printf(char *str, ...)
 	return (count);
 }
 
-// int main()
-// {
-// 	printf("");
-// }
+int main()
+{
+	char *a = "oussa";
+	int i =printf("helloworold! \n%s ma", a);
+	printf("\n%d\n",i);
+}
