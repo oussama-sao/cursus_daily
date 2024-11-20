@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putpourcent_printf.c                            :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 23:41:12 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/21 00:35:01 by oessaoud         ###   ########.fr       */
+/*   Created: 2024/11/20 22:41:09 by oessaoud          #+#    #+#             */
+/*   Updated: 2024/11/20 22:42:54 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-
-int	ft_putpourcent_printf()
+int main()
 {
-	return (ft_putchar_printf('%'));
+	printf("%d",(int)'a');
 }

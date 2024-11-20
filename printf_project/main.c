@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 23:23:45 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/20 19:09:16 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/21 00:40:33 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,10 @@ int	ft_printf(char *str, ...)
 
 int main()
 {
-	char *a = "oussa";
-	int i =printf("helloworold! \n%s ma", a);
+ int  a = -65451213;
+	int i =ft_printf("helloworold! \n%d ma", a);
 	printf("\n%d\n",i);
+	printf("\n/////////////////\n");
+	int i2 =printf("helloworold! \n%x ma", a);
+	printf("\n%d\n",i2);
 }

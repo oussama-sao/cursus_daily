@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 23:40:35 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/20 16:26:25 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/21 00:55:14 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 int	ft_putaddress_printf(void *ptr)
 {
-	(void) ptr;
-	return (1);
+	
 }
