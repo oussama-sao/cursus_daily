@@ -1,34 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_printf.c                                 :+:      :+:    :+:   */
+/*   ft_putnbr_printf.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 23:37:41 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/21 20:57:39 by oessaoud         ###   ########.fr       */
+/*   Created: 2024/11/19 23:38:59 by oessaoud          #+#    #+#             */
+/*   Updated: 2024/11/21 21:27:14 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-int	ft_putstr_printf(char *str)
+int	ft_putnbr_printf(int nbr)
 {
-	int	i;
 	int	count;
 	int	tmp;
 
 	count = 0;
-	i = 0;
-	if (!str)
-		str = "(null)";
-	while (str[i])
+	if (nbr == -2147483648)
+		return (ft_putstr_printf("-2147483648"));
+	if (nbr < 0)
 	{
-		tmp = ft_putchar_printf(str[i]);
+		if (ft_putchar_printf('-') < 0)
+			return (-1);
+		nbr *= -1;
+		count++;
+	}
+	if (nbr >= 10)
+	{
+		tmp = ft_putnbr_printf(nbr / 10);
 		if (tmp < 0)
 			return (-1);
 		count += tmp;
-		i++;
 	}
+	tmp = ft_putchar_printf(nbr % 10 + '0');
+	if (tmp < 0)
+		return (-1);
+	count += tmp;
 	return (count);
 }

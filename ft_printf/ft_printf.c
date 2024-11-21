@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.c                                           :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 23:23:45 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/21 20:58:26 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/21 22:06:08 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	checkerror(int *count, int tmp_count, va_list lst)
 {
@@ -35,7 +35,7 @@ int	ft_witchformat(char current, va_list lst)
 	else if (current == 'd' || current == 'i')
 		count += ft_putnbr_printf(va_arg(lst, int));
 	else if (current == 'u')
-		count += ft_putnbr_u_printf(va_arg(lst, unsigned int));
+		count += ft_putnbr_u_printf((unsigned int)va_arg(lst, unsigned int));
 	else if (current == 'p')
 		count += ft_putaddress_printf(va_arg(lst, void *));
 	else if (current == 'x')
@@ -49,7 +49,7 @@ int	ft_witchformat(char current, va_list lst)
 	return (count);
 }
 
-int	ft_printf(char *str, ...)
+int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		i;
@@ -80,10 +80,13 @@ int	ft_printf(char *str, ...)
 // int main()
 // {
 //  char  *a = "oussa";
-//  unsigned long adr = (unsigned long)a;
-// 	int i =ft_printf("helloworold! \n%p ma", a);
+//  //unsigned long adr = (unsigned long)a;
+// 	// int i =ft_printf("helloworold! \n%p ma", a);
+// 	// printf("\n%d\n",i);
+// 	// printf("\n/////////////////\n");
+// 	// int i2 =printf("helloworold! \n%p ma", a);
+// 	int i = ft_printf("\n%u\n",-200000);
 // 	printf("\n%d\n",i);
-// 	printf("\n/////////////////\n");
-// 	int i2 =printf("helloworold! \n%p ma", a);
-// 	printf("\n%d\n",i2);
+// 	i = printf("\n%u\n",-200000);
+// 	printf("\n%d\n",i);
 // }

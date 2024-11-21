@@ -6,13 +6,13 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 23:40:53 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/21 00:51:10 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/21 21:43:16 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-int	ft_puthexa_printf(unsigned int nbr, short isupper)
+int	ft_puthexa_printf(unsigned long nbr, short isupper)
 {
 	const char	*base = "0123456789abcdef";
 	const char	*base_upper = "0123456789ABCDEF";
