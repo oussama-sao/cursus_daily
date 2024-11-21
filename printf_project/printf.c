@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   printf.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 23:23:45 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/21 00:40:33 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/11/21 20:58:26 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	ft_witchformat(char current, va_list lst)
 	int	count;
 
 	count = 0;
-	
 	if (current == 'c')
 		count += ft_putchar_printf(va_arg(lst, int));
 	else if (current == 's')
@@ -78,12 +77,13 @@ int	ft_printf(char *str, ...)
 	return (count);
 }
 
-int main()
-{
- int  a = -65451213;
-	int i =ft_printf("helloworold! \n%d ma", a);
-	printf("\n%d\n",i);
-	printf("\n/////////////////\n");
-	int i2 =printf("helloworold! \n%x ma", a);
-	printf("\n%d\n",i2);
-}
+// int main()
+// {
+//  char  *a = "oussa";
+//  unsigned long adr = (unsigned long)a;
+// 	int i =ft_printf("helloworold! \n%p ma", a);
+// 	printf("\n%d\n",i);
+// 	printf("\n/////////////////\n");
+// 	int i2 =printf("helloworold! \n%p ma", a);
+// 	printf("\n%d\n",i2);
+// }
