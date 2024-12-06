@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 23:45:34 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/12/06 18:29:27 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/12/07 00:56:54 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ char	*get_text(int fd, char *text)
 {
 	int		i;
 	char	*buffer;
-	char	*tmp;
 
-	buffer = malloc(BUFFER_SIZE + 1);
+	buffer = malloc((size_t)BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
 	i = 1;
@@ -31,9 +30,12 @@ char	*get_text(int fd, char *text)
 			return (NULL);
 		}
 		buffer[i] = '\0';
-		tmp = ft_strjoin(text, buffer);
-		free (text);
-		text = tmp;
+		text = ft_strjoin_and_free(text, buffer);
+		if (!text)
+		{
+			free (buffer);
+			return (NULL);
+		}
 	}
 	free (buffer);
 	return (text);
@@ -44,8 +46,7 @@ char	*get_line(char *text, int size)
 	char	*line;
 	int		i;
 
-	if (!text)
-		return (NULL);
+	i = 0;
 	line = malloc(size + 1);
 	if (!line)
 		return (NULL);
@@ -60,14 +61,19 @@ char	*get_line(char *text, int size)
 
 char	*get_rest(char *text, int size)
 {
+	char	*rest;
+
 	if (!text[size])
 		return (NULL);
-	return (ft_strdup(text + size));
+	rest = ft_strdup(text + size);
+	free (text);
+	return (rest);
 }
 
 char	*next_line(char **text)
 {
 	int		i;
+	int		len;
 	char	*line;
 	char	*rest;
 
@@ -76,15 +82,11 @@ char	*next_line(char **text)
 	i = 0;
 	while ((*text)[i] && (*text)[i] != '\n')
 		i++;
-	line = malloc(i + 1 + ((*text)[i] == '\n'));
+	len = i + ((*text)[i] == '\n');
+	line = get_line(*text, len);
 	if (!line)
 		return (NULL);
-	line = get_line(*text, i + ((*text)[i] == '\n'));
-	if (!line)
-		return (NULL);
-	rest = get_rest(*text, i + ((*text)[i] == '\n'));
-	free(*text);
-	*text = rest;
+	*text = get_rest(*text, len);
 	return (line);
 }
 
@@ -96,6 +98,8 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	text = get_text(fd, text);
+	if (!text || !*text)
+		return (NULL);
 	line = next_line(&text);
 	return (line);
 }
@@ -114,7 +118,7 @@ char	*get_next_line(int fd)
 //  	printf("%s",c);
 // 	char *v = get_next_line(i);
 //  	printf("%s",v);
-// 	//  s = get_next_line(i);
-// 	//  printf("%s",s);
+// 	 s = get_next_line(i);
+// 	 printf("%s",s);
 // 	free (s);
 // }

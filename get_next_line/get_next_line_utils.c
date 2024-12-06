@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:32:41 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/12/06 18:18:50 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/12/06 23:16:54 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,18 @@ char	*ft_strjoin(char *s1, char *s2)
 		ptr[i++] = s2[j++];
 	ptr[i] = '\0';
 	return (ptr);
+}
+
+char	*ft_strjoin_and_free(char *s1, char *s2)
+{
+	char	*result;
+
+	result = ft_strjoin(s1, s2);
+	if (!result)
+	{
+		free (s1);
+		return (NULL);
+	}
+	free (s1);
+	return (result);
 }

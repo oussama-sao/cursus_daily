@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 23:40:49 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/12/06 18:26:54 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/12/06 23:41:40 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 5
 # endif
 
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strdup(char *str);
+char	*ft_strjoin_and_free(char *s1, char *s2);
 
 #endif
