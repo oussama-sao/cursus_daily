@@ -78,7 +78,6 @@ char	*next_line(char **text)
 	int		i;
 	int		len;
 	char	*line;
-	char	*rest;
 
 	if (!text || !*text || !**text)
 		return (NULL);
