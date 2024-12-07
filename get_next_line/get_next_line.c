@@ -41,7 +41,7 @@ char	*get_text(int fd, char *text)
 	return (text);
 }
 
-char	*get_line(char *text, int size)
+char	*get_line2(char *text, int size)
 {
 	char	*line;
 	int		i;
@@ -82,7 +82,7 @@ char	*next_line(char **text)
 	while ((*text)[i] && (*text)[i] != '\n')
 		i++;
 	len = i + ((*text)[i] == '\n');
-	line = get_line(*text, len);
+	line = get_line2(*text, len);
 	if (!line)
 		return (NULL);
 	*text = get_rest(*text, len);
