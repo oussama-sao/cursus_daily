@@ -27,15 +27,13 @@ char	*get_text(int fd, char *text)
 		if (i < 0)
 		{
 			free (buffer);
+			free (text);
 			return (NULL);
 		}
 		buffer[i] = '\0';
 		text = ft_strjoin_and_free(text, buffer);
 		if (!text)
-		{
-			free (buffer);
-			return (NULL);
-		}
+			break;
 	}
 	free (buffer);
 	return (text);
@@ -87,10 +85,7 @@ char	*next_line(char **text)
 	len = i + ((*text)[i] == '\n');
 	line = get_line2(*text, len);
 	if (!line)
-	{
-		free (text);	
 		return (NULL);
-	}
 	*text = get_rest(*text, len);
 	return (line);
 }
@@ -101,43 +96,47 @@ char	*get_next_line(int fd)
 	static char	*text;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
+	{
+		free (text);
 		return (NULL);
+	}
 	text = get_text(fd, text);
-	if (!text || !*text)
+	if (!text || !(*text))
 	{
 		free (text);	
+		text = NULL;
 		return (NULL);
 	}
 	line = next_line(&text);
 	return (line);
 }
 
-int main()
-{
-	int i = open("file1.txt",O_RDONLY);
-	int i2 = open("file2.txt",O_RDONLY);
-	char *s = get_next_line(i);
-	 printf("%s",s);
-	char *s2 = get_next_line(i2);
-	printf("+%s+",s2);
-	char *k2 = get_next_line(i2);
- 	printf("2%s2",k2);
-	char *d2 = get_next_line(i2);
- 	printf("%s",d2);
-	char *c2 = get_next_line(i2);
- 	printf("%s",c2);
-	char *v2 = get_next_line(i2);
- 	printf("%s",v2);
-	char *b2 = get_next_line(i2);
-	printf("%s",b2);
-	char *k = get_next_line(i);
- 	printf("%s",k);
-	char *d = get_next_line(i);
- 	printf("%s",d);
-	char *c = get_next_line(i);
- 	printf("%s",c);
-	char *v = get_next_line(i);
- 	printf("%s",v);
-	char *b = get_next_line(i);
-	printf("2%s",b);
-}
+// int main()
+// {
+// 	int i = open("file1.txt",O_RDONLY);
+// 	int i2 = open("file2.txt",O_RDONLY);
+// 	char *s = get_next_line(i);
+// 	 printf("%s",s);
+// 	char *s2 = get_next_line(i2);
+// 	printf("+%s+",s2);
+// 	char *k2 = get_next_line(i2);
+//  	printf("2%s2",k2);
+// 	char *d2 = get_next_line(i2);
+//  	printf("%s",d2);
+// 	char *c2 = get_next_line(i2);
+//  	printf("%s",c2);
+// 	char *v2 = get_next_line(i2);
+//  	printf("%s",v2);
+// 	char *b2 = get_next_line(i2);
+// 	printf("%s",b2);
+// 	char *k = get_next_line(i);
+//  	printf("%s",k);
+// 	char *d = get_next_line(i);
+//  	printf("%s",d);
+// 	char *c = get_next_line(i);
+//  	printf("%s",c);
+// 	char *v = get_next_line(i);
+//  	printf("%s",v);
+// 	char *b = get_next_line(i);
+// 	printf("2%s",b);
+// }
