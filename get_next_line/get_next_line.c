@@ -116,18 +116,39 @@ char	*get_next_line(int fd)
 
 // int main()
 // {
-// 	int i = open("text.txt",O_RDONLY);
-// 	int i2 = open("file2.txt",O_RDONLY);
-// 	char *s = get_next_line(i);
-// 	 printf("%s",s);
-// 	char *k = get_next_line(i);
-//  	printf("%s",k);
-// 	char *d = get_next_line(i);
-//  	printf("%s",d);
-// 	char *c = get_next_line(i);
-//  	printf("%s",c);
-// 	char *v = get_next_line(i);
-//  	printf("%s",v);
-// 	char *b = get_next_line(i);
-// 	printf("%s",b);
+// 	int fd1 = open("file1.txt", O_RDONLY);
+// 	int fd2 = open("file2.txt", O_RDONLY);
+
+// 	char *line1 = get_next_line(fd1);
+// 	printf("File1: %s", line1);
+// 	free(line1);
+
+// 	char *line2 = get_next_line(fd2);
+// 	printf("File2: %s", line2);
+// 	free(line2);
+
+// 	line1 = get_next_line(fd1);
+// 	printf("File1: %s", line1);
+// 	free(line1);
+
+// 	line2 = get_next_line(fd2);
+// 	printf("File2: %s", line2);
+// 	free(line2);
+// 	line1 = get_next_line(fd1);
+// 	printf("File1: %s", line1);
+// 	free(line1);
+
+// 	line2 = get_next_line(fd2);
+// 	printf("File2: %s", line2);
+// 	free(line2);
+// 	line1 = get_next_line(fd1);
+// 	printf("File1: %s", line1);
+// 	free(line1);
+
+// 	line2 = get_next_line(fd2);
+// 	printf("File2: %s", line2);
+// 	free(line2);
+
+// 	close(fd1);
+// 	close(fd2);
 // }
