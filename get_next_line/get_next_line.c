@@ -32,7 +32,7 @@ char	*get_text(int fd, char *text)
 		}
 		buffer[i] = '\0';
 		text = ft_strjoin_and_free(text, buffer);
-		if (!text)
+		if (ft_strchr(buffer, '\n'))
 			break;
 	}
 	free (buffer);
@@ -85,7 +85,10 @@ char	*next_line(char **text)
 	len = i + ((*text)[i] == '\n');
 	line = get_line2(*text, len);
 	if (!line)
+	{
+		free (text);
 		return (NULL);
+	}
 	*text = get_rest(*text, len);
 	return (line);
 }
@@ -113,22 +116,10 @@ char	*get_next_line(int fd)
 
 // int main()
 // {
-// 	int i = open("file1.txt",O_RDONLY);
+// 	int i = open("text.txt",O_RDONLY);
 // 	int i2 = open("file2.txt",O_RDONLY);
 // 	char *s = get_next_line(i);
 // 	 printf("%s",s);
-// 	char *s2 = get_next_line(i2);
-// 	printf("+%s+",s2);
-// 	char *k2 = get_next_line(i2);
-//  	printf("2%s2",k2);
-// 	char *d2 = get_next_line(i2);
-//  	printf("%s",d2);
-// 	char *c2 = get_next_line(i2);
-//  	printf("%s",c2);
-// 	char *v2 = get_next_line(i2);
-//  	printf("%s",v2);
-// 	char *b2 = get_next_line(i2);
-// 	printf("%s",b2);
 // 	char *k = get_next_line(i);
 //  	printf("%s",k);
 // 	char *d = get_next_line(i);
@@ -138,5 +129,5 @@ char	*get_next_line(int fd)
 // 	char *v = get_next_line(i);
 //  	printf("%s",v);
 // 	char *b = get_next_line(i);
-// 	printf("2%s",b);
+// 	printf("%s",b);
 // }
