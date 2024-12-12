@@ -6,14 +6,13 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 23:40:49 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/12/06 23:41:40 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/12/12 15:14:42 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <stdio.h>
 # include <fcntl.h>
 # include <stdlib.h>
 # include <limits.h>

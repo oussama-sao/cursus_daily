@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 23:45:34 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/12/07 20:57:42 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/12/12 14:56:29 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*get_text(int fd, char *text)
 		buffer[i] = '\0';
 		text = ft_strjoin_and_free(text, buffer);
 		if (ft_strchr(buffer, '\n'))
-			break;
+			break ;
 	}
 	free (buffer);
 	return (text);
@@ -106,7 +106,7 @@ char	*get_next_line(int fd)
 	text = get_text(fd, text);
 	if (!text || !(*text))
 	{
-		free (text);	
+		free (text);
 		text = NULL;
 		return (NULL);
 	}

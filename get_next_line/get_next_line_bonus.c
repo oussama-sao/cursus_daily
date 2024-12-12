@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 23:45:34 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/12/07 20:57:42 by oessaoud         ###   ########.fr       */
+/*   Updated: 2024/12/12 14:56:57 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*get_text(int fd, char *text)
 {
 	int		i;
-	char *buffer;
+	char	*buffer;
 
 	buffer = malloc((size_t)BUFFER_SIZE + 1);
 	if (!buffer)
@@ -33,7 +33,7 @@ char	*get_text(int fd, char *text)
 		buffer[i] = '\0';
 		text = ft_strjoin_and_free(text, buffer);
 		if (ft_strchr(buffer, '\n'))
-			break;
+			break ;
 	}
 	free (buffer);
 	return (text);
