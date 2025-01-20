@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_putpourcent_printf(void)
+void	ft_putpourcent_printf(int *count)
 {
-	return (ft_putchar_printf('%'));
+	return (ft_putchar_printf('%', count));
 }

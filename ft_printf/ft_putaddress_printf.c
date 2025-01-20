@@ -12,29 +12,16 @@
 
 #include "ft_printf.h"
 
-int	ft_putaddress_printf(void *ptr)
+void	ft_putaddress_printf(void *ptr, int *count)
 {
-	int				count;
-	int				tmp;
 	unsigned long	adr;
 
 	adr = (unsigned long)ptr;
-	count = 0;
-	if (ft_putstr_printf("0x") < 0)
-		return (-1);
-	count += 2;
 	if (adr == 0)
 	{
-		if (ft_putchar_printf('0') < 0)
-			return (-1);
-		count++;
+		ft_putstr_printf("(nil)", count);
+		return ;
 	}
-	else
-	{
-		tmp = ft_puthexa_printf(adr, 0);
-		if (tmp < 0)
-			return (-1);
-		count += tmp;
-	}
-	return (count);
+	ft_putstr_printf("0x", count);
+	ft_puthexa_printf((unsigned long)adr, 0, count);
 }

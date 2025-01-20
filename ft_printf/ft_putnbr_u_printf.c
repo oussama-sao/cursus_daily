@@ -12,22 +12,9 @@
 
 #include "ft_printf.h"
 
-int	ft_putnbr_u_printf(unsigned int nbr)
+void	ft_putnbr_u_printf(unsigned int nbr, int *count)
 {
-	int	count;
-	int	tmp;
-
-	count = 0;
 	if (nbr >= 10)
-	{
-		tmp = ft_putnbr_u_printf(nbr / 10);
-		if (tmp < 0)
-			return (-1);
-		count += tmp;
-	}
-	tmp = ft_putchar_printf(nbr % 10 + '0');
-	if (tmp < 0)
-		return (-1);
-	count += tmp;
-	return (count);
+		ft_putnbr_u_printf(nbr / 10, count);
+	ft_putchar_printf((nbr % 10 + '0'), count);
 }

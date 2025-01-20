@@ -12,12 +12,8 @@
 
 #include "ft_printf.h"
 
-int	ft_putchar_printf(char c)
+void	ft_putchar_printf(char c, int *count)
 {
-	int	checkerror;
-
-	checkerror = write (1, &c, 1);
-	if (checkerror < 0)
-		return (-1);
-	return (1);
+	write (1, &c, 1);
+	(*count)++;
 }

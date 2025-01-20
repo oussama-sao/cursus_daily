@@ -12,31 +12,16 @@
 
 #include "ft_printf.h"
 
-int	ft_putnbr_printf(int nbr)
+void	ft_putnbr_printf(int nbr, int *count)
 {
-	int	count;
-	int	tmp;
-
-	count = 0;
 	if (nbr == -2147483648)
-		return (ft_putstr_printf("-2147483648"));
+		return (ft_putstr_printf("-2147483648", count));
 	if (nbr < 0)
 	{
-		if (ft_putchar_printf('-') < 0)
-			return (-1);
+		ft_putchar_printf('-', count);
 		nbr *= -1;
-		count++;
 	}
 	if (nbr >= 10)
-	{
-		tmp = ft_putnbr_printf(nbr / 10);
-		if (tmp < 0)
-			return (-1);
-		count += tmp;
-	}
-	tmp = ft_putchar_printf(nbr % 10 + '0');
-	if (tmp < 0)
-		return (-1);
-	count += tmp;
-	return (count);
+		ft_putnbr_printf(nbr / 10, count);
+	ft_putchar_printf(nbr % 10 + '0', count);
 }

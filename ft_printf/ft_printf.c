@@ -12,41 +12,22 @@
 
 #include "ft_printf.h"
 
-int	checkerror(int *count, int tmp_count, va_list lst)
+void	ft_witchformat(char current, va_list lst, int *count)
 {
-	if (tmp_count < 0)
-	{
-		va_end(lst);
-		return (-1);
-	}
-	*count += tmp_count;
-	return (0);
-}
-
-int	ft_witchformat(char current, va_list lst)
-{
-	int	count;
-
-	count = 0;
 	if (current == 'c')
-		count += ft_putchar_printf(va_arg(lst, int));
+		ft_putchar_printf(va_arg(lst, int), count);
 	else if (current == 's')
-		count += ft_putstr_printf(va_arg(lst, char *));
+		ft_putstr_printf(va_arg(lst, char *), count);
 	else if (current == 'd' || current == 'i')
-		count += ft_putnbr_printf(va_arg(lst, int));
+		ft_putnbr_printf(va_arg(lst, int), count);
 	else if (current == 'u')
-		count += ft_putnbr_u_printf((unsigned int)va_arg(lst, unsigned int));
+		ft_putnbr_u_printf((unsigned int)va_arg(lst, unsigned int), count);
 	else if (current == 'p')
-		count += ft_putaddress_printf(va_arg(lst, void *));
-	else if (current == 'x')
-		count += ft_puthexa_printf(va_arg(lst, unsigned long), 0);
-	else if (current == 'X')
-		count += ft_puthexa_printf(va_arg(lst, unsigned long), 1);
+		ft_putaddress_printf(va_arg(lst, void *), count);
+	else if (current == 'x' || current == 'X')
+		ft_puthexa_printf(va_arg(lst, unsigned int), current == 'X', count);
 	else if (current == '%')
-		count += ft_putpourcent_printf();
-	if (count < 0)
-		return (-1);
-	return (count);
+		ft_putpourcent_printf(count);
 }
 
 int	ft_printf(const char *str, ...)
@@ -54,23 +35,23 @@ int	ft_printf(const char *str, ...)
 	va_list	args;
 	int		i;
 	int		count;
-	int		tmp;
 
 	count = 0;
 	i = 0;
+	if (write(1, "", 0) == -1)
+		return (-1);
+	if (!str)
+		return (-1);
 	va_start(args, str);
 	while (str[i])
 	{
-		tmp = 0;
 		if (str[i] == '%')
 		{
 			i++;
-			tmp = ft_witchformat(str[i], args);
+			ft_witchformat(str[i], args, &count);
 		}
 		else
-			tmp = ft_putchar_printf(str[i]);
-		if (checkerror(&count, tmp, args) < 0)
-			return (-1);
+			ft_putchar_printf(str[i], &count);
 		i++;
 	}
 	va_end(args);

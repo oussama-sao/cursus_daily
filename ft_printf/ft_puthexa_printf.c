@@ -12,26 +12,14 @@
 
 #include "ft_printf.h"
 
-int	ft_puthexa_printf(unsigned long nbr, short isupper)
+void	ft_puthexa_printf(unsigned long nbr, short isupper, int *count)
 {
 	const char	*base = "0123456789abcdef";
 	const char	*base_upper = "0123456789ABCDEF";
-	int			count;
-	int			tmp;
 
-	count = 0;
 	if (isupper)
 		base = base_upper;
 	if (nbr >= 16)
-	{
-		tmp = ft_puthexa_printf(nbr / 16, isupper);
-		if (tmp < 0)
-			return (-1);
-		count += tmp;
-	}
-	tmp = ft_putchar_printf(base[nbr % 16]);
-	if (tmp < 0)
-		return (-1);
-	count += tmp;
-	return (count);
+		ft_puthexa_printf(nbr / 16, isupper, count);
+	ft_putchar_printf(base[nbr % 16], count);
 }

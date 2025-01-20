@@ -12,23 +12,16 @@
 
 #include "ft_printf.h"
 
-int	ft_putstr_printf(char *str)
+void	ft_putstr_printf(char *str, int *count)
 {
 	int	i;
-	int	count;
-	int	tmp;
 
-	count = 0;
 	i = 0;
 	if (!str)
 		str = "(null)";
 	while (str[i])
 	{
-		tmp = ft_putchar_printf(str[i]);
-		if (tmp < 0)
-			return (-1);
-		count += tmp;
+		ft_putchar_printf(str[i], count);
 		i++;
 	}
-	return (count);
 }
