@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 21:40:46 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/21 21:43:46 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:20:54 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	ft_putnbr_u_printf(unsigned int nbr, int *count);
 void	ft_putaddress_printf(void *ptr, int *count);
 void	ft_puthexa_printf(unsigned long nbr, short isupper, int *count);
 void	ft_putpourcent_printf(int *count);
-int	ft_printf(const char *str, ...);
+int		ft_printf(const char *str, ...);
 
 #endif
