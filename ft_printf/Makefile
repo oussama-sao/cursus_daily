@@ -13,6 +13,8 @@ all : $(NAME)
 $(NAME) : $(SRC_OBJ)
 	$(AR) $(NAME) $(SRC_OBJ)
 
+bonus : $(NAME)
+
 %.o : %.c
 	$(CC) $(FLAG) -c $^ -o $@
 

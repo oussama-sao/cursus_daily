@@ -12,6 +12,47 @@
 
 #include "ft_printf.h"
 
+void ft_handle_sharp_flag(const char *current, int *count, va_list lst_copy)
+{
+    unsigned int tmp;
+
+    if (current[0] == '#' && (current[1] == 'x' || current[1] == 'X'))
+    {
+        tmp = va_arg(lst_copy, unsigned int);
+        if (tmp != 0)
+        {
+            if (current[1] == 'x')
+                ft_putstr_printf("0x", count);
+            else if (current[1] == 'X')
+                ft_putstr_printf("0X", count);
+        }
+    }
+}
+
+void ft_is_there_flags(const char *current, int *i, va_list lst, int *count)
+{
+	va_list	lst_copy;
+	int	tmp;
+
+	va_copy(lst_copy, lst);
+	ft_handle_sharp_flag(current, count, lst_copy);
+	tmp = va_arg(lst_copy, int);
+    if (current[0] == '#' && (current[1] == 'x' || current[1] == 'X'))
+        (*i)++;
+	else if (current[0] == '+' && (current[1] == 'd' || current[1] == 'i'))
+	{
+		if (tmp >= 0)
+			ft_putchar_printf('+', count);
+		(*i)++;
+	}
+	else if (current[0] == ' ' && (current[1] == 'd' || current[1] == 'i'))
+	{
+		if (tmp >= 0)
+			ft_putchar_printf(' ', count);
+		(*i)++;
+	}
+}
+
 void	ft_witchformat(char current, va_list lst, int *count)
 {
 	if (current == 'c')
@@ -48,6 +89,7 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			i++;
+			ft_is_there_flags(&str[i], &i, args, &count);
 			ft_witchformat(str[i], args, &count);
 		}
 		else
@@ -57,3 +99,4 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (count);
 }
+

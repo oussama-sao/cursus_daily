@@ -17,6 +17,7 @@ void	ft_putaddress_printf(void *ptr, int *count)
 	unsigned long	adr;
 
 	adr = (unsigned long)ptr;
+
 	if (adr == 0)
 	{
 		ft_putstr_printf("(nil)", count);
