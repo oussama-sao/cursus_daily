@@ -6,23 +6,23 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 02:36:43 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/08 20:34:57 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/11 03:49:24 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	indexing(stack *s)
+void	indexing(t_stack **a)
 {
-	node	*current;
-	node	*tmp;
+	t_node	*current;
+	t_node	*tmp;
 	int		i;
 
-	current = s->top;
+	current = (*a)->top;
 	while (current)
 	{
 		i = 0;
-		tmp = s->top->next;
+		tmp = (*a)->top;
 		while (tmp)
 		{
 			if (current->value > tmp->value)

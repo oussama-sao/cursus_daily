@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 15:10:58 by oessaoud          #+#    #+#             */
-/*   Updated: 2024/11/11 17:01:33 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/11 03:48:35 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*last_node;
+	t_list	*last_t_node;
 
 	if (!new || !lst)
 		return ;
@@ -23,6 +23,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 		return ;
 	}
-	last_node = ft_lstlast(*lst);
-	last_node->next = new;
+	last_t_node = ft_lstlast(*lst);
+	last_t_node->next = new;
 }

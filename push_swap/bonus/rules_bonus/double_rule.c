@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   double_rule.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 16:01:18 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/11 03:48:35 by oessaoud         ###   ########.fr       */
+/*   Created: 2025/03/11 17:17:08 by oessaoud          #+#    #+#             */
+/*   Updated: 2025/03/11 17:19:35 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap_bonus.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ss(t_stack *a, t_stack *b)
 {
-	t_list	*next_t_node;
+	sa(a);
+	sb(b);
+}
 
-	if (!lst || !del)
-		return ;
-	while (*lst)
-	{
-		next_t_node = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = next_t_node;
-	}
-	*lst = NULL;
+void	rr(t_stack *a, t_stack *b)
+{
+	ra(a);
+	rb(b);
+}
+
+void	rrr(t_stack *a, t_stack *b)
+{
+	rra(a);
+	rrb(b);
 }

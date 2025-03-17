@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   gnl_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 16:01:18 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/11 03:48:35 by oessaoud         ###   ########.fr       */
+/*   Created: 2025/03/11 02:58:47 by oessaoud          #+#    #+#             */
+/*   Updated: 2025/03/12 19:41:32 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap_bonus.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+char	*gnl(int fd)
 {
-	t_list	*next_t_node;
+	char	*line;
+	int		error;
+	char	buffer[2];
 
-	if (!lst || !del)
-		return ;
-	while (*lst)
+	line = ft_strdup("");
+	error = 1;
+	while (error)
 	{
-		next_t_node = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = next_t_node;
+		error = read(fd, buffer, 1);
+		buffer[1] = '\0';
+		line = ft_strjoin_and_free(line, buffer);
+		if (buffer[0] == '\n')
+			break ;
 	}
-	*lst = NULL;
+	if (error <= 0)
+	{
+		free (line);
+		return (NULL);
+	}
+	if (!*line)
+	{
+		free(line);
+		return (NULL);
+	}
+	return (line);
 }

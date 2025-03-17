@@ -6,44 +6,41 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 02:36:24 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/08 21:29:12 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/11 16:42:47 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	init(int *start, int *end, stack **a, node *current)
+static void	init_start(int *start, int *end, t_stack **a, t_node **current)
 {
-	node	*current;
-	int		start;
-	int		end;
-
-	current = (*a)->top;
-	start = 0;
+	*current = (*a)->top;
+	*start = 0;
 	if ((*a)->size >= 6 && (*a)->size <= 100)
-		end = (*a)->size / 6;
+		*end = (*a)->size / 6;
 	else if ((*a)->size > 100)
-		end = (*a)->size / 13;
+		*end = (*a)->size / 13;
 }
 
-void	fill_stack_b(stack **a, stack **b)
+void	fill_t_stack_b(t_stack **a, t_stack **b)
 {
-	node (*current);
+	t_node (*current);
 	int (start), (end);
-	init(&start, &end, current, (*a));
-	while (*a)
+	init_start(&start, &end, a, &current);
+	current = (*a)->top;
+	while ((*a)->top)
 	{
-		if (current->index < start)
+		if ((*a)->top->index < start)
 		{
 			pb(b, a);
 			rb(*b);
 			start++;
 			end++;
 		}
-		else if (current->index >= start && current->index <= end)
+		else if ((*a)->top->index >= start && (*a)->top->index <= end)
 		{
 			pb(b, a);
-			if ((*b) && (*b)->top && (*b)->top->next
+			if ((*b)->top && (*b)->top->next
 				&& (*b)->top->index < (*b)->top->next->index)
 				sb(*b);
 			start++;
@@ -51,5 +48,34 @@ void	fill_stack_b(stack **a, stack **b)
 		}
 		else
 			ra(*a);
+	}
+}
+
+void	final_t_stack_a(t_stack **a, t_stack **b)
+{
+	int (i);
+	t_node (*current);
+	while ((*b)->top)
+	{
+		current = (*b)->top;
+		i = 0;
+		while (current)
+		{
+			if (current->index == (*b)->size - 1)
+				break ;
+			i++;
+			current = current->next;
+		}
+		if (i < (*b)->size / 2)
+		{
+			while (i--)
+				rb(*b);
+		}
+		else
+		{
+			while (i++ <= (*b)->size - 1)
+				rrb(*b);
+		}
+		pa(a, b);
 	}
 }
