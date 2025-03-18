@@ -14,9 +14,9 @@
 
 void	check_error(char *filename)
 {
-	char	*map;
+	t_list	*map;
 
-	map	= read_map(filename); //to do later
 	valid_name(filename);
+	read_map(filename, &map); //fill each node of tlist with a map linel;
 	valid_map(map);
 }

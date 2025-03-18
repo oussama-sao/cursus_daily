@@ -10,17 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	is_straight_lines(char *map)
+#include "../so_long.h"
+
+void	is_straight_lines(t_list *map)
 {
-	int	i;
-	int	j;
+	int		line_len;
+
+	line_len = ft_strlen(map->content);
+	while (map)
+	{
+		if (ft_strlen(map->content) != line_len)
+			exit (1);
+		map = map->next;
+	}
+}
+
+void	is_arounded_by_walls(t_list *map)
+{
+	int		i;
+	t_list	*last;
+	t_list	*first;
 
 	i = 0;
-	j = 0;
-	while (map[i])
+	first = map;
+	last = ft_lstlast(map);
+	
+	while (map)
 	{
-		j = 0;
-		while (map[j] != '\n')
-		
+
 	}
 }

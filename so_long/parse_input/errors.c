@@ -24,8 +24,9 @@ void	valid_name(char *filename)
 		exit (1);
 }
 
-void	valid_map(char *map)
+void	valid_map(t_list *map)
 {
+	if (!map || !map->next || !map->next->next)
 	is_straight_lines(map);
 	is_arounded_by_walls(map);
 	is_only_one_player(map);
