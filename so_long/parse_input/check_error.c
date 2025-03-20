@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 02:33:00 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/20 02:38:35 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/20 03:57:32 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,11 @@ void	check_error(char *filename)
 	map = NULL;
 	valid_name(filename);
 	read_map(filename, &map);
-	valid_map(map);
+	if (!valid_map(map))
+	{
+		ft_lstclear(&map, free);
+		exit (1);		
+	}
+	//check road function
+	ft_lstclear(&map, free);
 }

@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 02:40:16 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/20 02:44:15 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/20 03:52:00 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 void	check_error(char *filename);
 void	valid_name(char *filename);
 void	read_map(char *filename, t_list **lst);
-void	valid_map(t_list *map);
+int		valid_map(t_list *map);
 int		straight_lines(t_list *map);
 int		validate_walls(t_list *map);
 int		validate_element(t_list *map);
 int		search_element(t_list *map, char element);
 int		print_error(char *str);
-int	line_len(char *line);
+int		line_len(char *line);
 
 #endif

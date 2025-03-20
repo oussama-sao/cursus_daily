@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 22:52:04 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/20 02:44:06 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/20 03:16:00 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	read_map(char *filename, t_list **lst)
 			break ;
 		ft_lstadd_back(lst, ft_lstnew(line));
 	}
+	close(fd);
 }
 
 int	line_len(char *line)

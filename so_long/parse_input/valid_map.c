@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 03:37:44 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/20 02:59:55 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/20 03:54:10 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	straight_lines(t_list *map)
 	int		len;
 
 	len = line_len(map->content);
-	printf("||| %d\n",len);
 	while (map)
 	{
 		if (line_len(map->content) != len)
