@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 02:34:56 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/20 01:41:22 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/20 03:09:18 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ void	valid_name(char *filename)
 void	valid_map(t_list *map)
 {
 	if (!map || !map->next || !map->next->next)
-	if (straight_lines(map))
-		printf("straight lines\n");
+		exit (1);
+	if (!straight_lines(map))
+		exit (1);
 	if (validate_walls(map))
 		printf("valid walls\n");
 	if (validate_element(map))

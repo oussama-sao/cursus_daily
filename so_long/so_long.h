@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 02:40:16 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/20 01:27:59 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/20 02:44:15 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int		validate_walls(t_list *map);
 int		validate_element(t_list *map);
 int		search_element(t_list *map, char element);
 int		print_error(char *str);
-
+int	line_len(char *line);
 
 #endif

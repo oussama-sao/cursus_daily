@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 22:52:04 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/20 01:41:16 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/20 02:44:06 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	read_map(char *filename, t_list **lst)
 	char	*line;
 
 	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+		exit (1);
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -54,4 +56,14 @@ void	read_map(char *filename, t_list **lst)
 			break ;
 		ft_lstadd_back(lst, ft_lstnew(line));
 	}
+}
+
+int	line_len(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (line[i] && line[i] != '\n')
+		i++;
+	return (i);
 }

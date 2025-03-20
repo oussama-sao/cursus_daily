@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 03:37:44 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/20 01:38:11 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/20 02:59:55 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 int	straight_lines(t_list *map)
 {
-	int		line_len;
+	int		len;
 
-	line_len = ft_strlen(map->content);
+	len = line_len(map->content);
+	printf("||| %d\n",len);
 	while (map)
 	{
-		if (ft_strlen(map->content) != line_len)
-			return (print_error("lines are not straight\n"));
+		if (line_len(map->content) != len)
+			return (print_error("lines are not straight111\n"));
 		map = map->next;
 	}
 	return (1);
@@ -36,17 +37,17 @@ int	validate_walls(t_list *map)
 	i = 0;
 	first = map->content;
 	last = ft_lstlast(map)->content;
-	while (first[i])
+	while (first[i] && first[i] != '\n')
 	{
 		if (first[i] != '1' || last[i] != '1')
-			return (print_error("not arounded by walls\n"));
+			return (print_error("not arounded by walls111\n"));
 		i++;
 	}
-	while (map)
+	while (map->next)
 	{
 		line = map->content;
-		if (line[0] != '1' || line[ft_strlen(line) - 1] != '1')
-			return (print_error("not arounded by walls\n"));
+		if (line[0] != '1' || line[ft_strlen(line) - 2] != '1')
+			return (print_error("not arounded by walls222\n"));
 		map = map->next;
 	}
 	return (1);
