@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 02:34:56 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/17 03:51:56 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/20 01:41:22 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ void	valid_name(char *filename)
 void	valid_map(t_list *map)
 {
 	if (!map || !map->next || !map->next->next)
-	is_straight_lines(map);
-	validate_walls(map);
-	is_only_one_player(map);
-	is_there_coins(map);
-	is_there_door(map);
-	is_road_ok(map);//is the door and coins are reachable; flood_fill; .../ ia there other elements / 
+	if (straight_lines(map))
+		printf("straight lines\n");
+	if (validate_walls(map))
+		printf("valid walls\n");
+	if (validate_element(map))
+		printf("valid elements\n");
+	// is_road_ok(map);//is the door and coins are reachable; flood_fill; .../ ia there other elements / 
 }

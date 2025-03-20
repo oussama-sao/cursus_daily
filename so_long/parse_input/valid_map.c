@@ -6,13 +6,13 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 03:37:44 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/20 00:06:36 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/20 01:38:11 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	straight_lines(t_list *map)
+int	straight_lines(t_list *map)
 {
 	int		line_len;
 
@@ -20,7 +20,7 @@ void	straight_lines(t_list *map)
 	while (map)
 	{
 		if (ft_strlen(map->content) != line_len)
-			return (0);
+			return (print_error("lines are not straight\n"));
 		map = map->next;
 	}
 	return (1);
@@ -39,14 +39,14 @@ int	validate_walls(t_list *map)
 	while (first[i])
 	{
 		if (first[i] != '1' || last[i] != '1')
-			return (0);
+			return (print_error("not arounded by walls\n"));
 		i++;
 	}
 	while (map)
 	{
 		line = map->content;
 		if (line[0] != '1' || line[ft_strlen(line) - 1] != '1')
-			return (0);
+			return (print_error("not arounded by walls\n"));
 		map = map->next;
 	}
 	return (1);
@@ -66,5 +66,5 @@ int	validate_element(t_list *map)
 	count = search_element(map, 'C');
 	if (!count)
 		return (print_error("collectable missing !!\n"));
+	return (1);
 }
-

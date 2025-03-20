@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 22:52:04 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/19 23:55:49 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/20 01:41:16 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,26 @@ int	search_element(t_list *map, char element)
 		map = map->next;
 	}
 	return (count);
+}
+
+int	print_error(char *str)
+{
+	ft_putstr_fd("Error\n",  2);
+	ft_putstr_fd(str, 2);
+	return (0);
+}
+
+void	read_map(char *filename, t_list **lst)
+{
+	int		fd;
+	char	*line;
+
+	fd = open(filename, O_RDONLY);
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		ft_lstadd_back(lst, ft_lstnew(line));
+	}
 }
