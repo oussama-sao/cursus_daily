@@ -6,13 +6,13 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 03:37:44 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/17 03:55:57 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/20 00:06:36 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	is_straight_lines(t_list *map)
+void	straight_lines(t_list *map)
 {
 	int		line_len;
 
@@ -20,23 +20,51 @@ void	is_straight_lines(t_list *map)
 	while (map)
 	{
 		if (ft_strlen(map->content) != line_len)
-			exit (1);
+			return (0);
 		map = map->next;
 	}
+	return (1);
 }
 
-void	is_arounded_by_walls(t_list *map)
+int	validate_walls(t_list *map)
 {
 	int		i;
-	t_list	*last;
-	t_list	*first;
+	char	*last;
+	char	*first;
+	char	*line;
 
 	i = 0;
-	first = map;
-	last = ft_lstlast(map);
-	
+	first = map->content;
+	last = ft_lstlast(map)->content;
+	while (first[i])
+	{
+		if (first[i] != '1' || last[i] != '1')
+			return (0);
+		i++;
+	}
 	while (map)
 	{
-
+		line = map->content;
+		if (line[0] != '1' || line[ft_strlen(line) - 1] != '1')
+			return (0);
+		map = map->next;
 	}
+	return (1);
 }
+
+int	validate_element(t_list *map)
+{
+	int	count;
+
+	count = 0;
+	count = search_element(map, 'P');
+		if (count != 1)
+			return (print_error("player error !!\n"));
+	count = search_element(map, 'E');
+	if (count != 1)
+		return (print_error("exit door error !!\n"));
+	count = search_element(map, 'C');
+	if (!count)
+		return (print_error("collectable missing !!\n"));
+}
+

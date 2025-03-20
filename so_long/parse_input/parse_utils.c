@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 02:40:16 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/19 23:56:01 by oessaoud         ###   ########.fr       */
+/*   Created: 2025/03/19 22:52:04 by oessaoud          #+#    #+#             */
+/*   Updated: 2025/03/19 23:55:49 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "../so_long.h"
 
-#include "libft/libft.h"
+int	search_element(t_list *map, char element)
+{
+	int		count;
+	int		i;
+	char	*line;
 
-int	valid_name(char *filename);
-int	check_error(char *filename);
-int	valid_map(t_list *map);
-int	is_straight_lines(t_list *map);
-int	validate_walls(t_list *map);
-int	search_element(t_list *map, char element);
-
-#endif
+	count = 0;
+	while (map)
+	{
+		i = 0;
+		line = map->content;
+		while (line[i])
+		{
+			if (line[i] == element)
+				count++;
+			i++;
+		}
+		map = map->next;
+	}
+	return (count);
+}

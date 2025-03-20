@@ -28,9 +28,9 @@ void	valid_map(t_list *map)
 {
 	if (!map || !map->next || !map->next->next)
 	is_straight_lines(map);
-	is_arounded_by_walls(map);
+	validate_walls(map);
 	is_only_one_player(map);
 	is_there_coins(map);
 	is_there_door(map);
-	is_road_ok(map);//is the door and coins are reachable; flood_fill;
+	is_road_ok(map);//is the door and coins are reachable; flood_fill; .../ ia there other elements / 
 }
