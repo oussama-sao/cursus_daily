@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 02:40:16 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/20 03:52:00 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/21 20:28:51 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,18 @@
 
 #include "libft/libft.h"
 #include "gnl/get_next_line_bonus.h"
+
+typedef struct t_map
+{
+	int	height;
+	int	width;
+}	t_map;
+
+typedef struct t_player
+{
+	int	x;
+	int	y;	
+}	t_player;
 
 void	check_error(char *filename);
 void	valid_name(char *filename);

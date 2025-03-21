@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 02:34:56 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/20 03:57:46 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/21 21:25:09 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int	valid_map(t_list *map)
 		return (0);
 	if (!validate_element(map))
 		return (0);
-	//is_road_ok(map);//is the door and coins are reachable; flood_fill; .../ ia there other elements / 
+	validate_road(map);//is the door and coins are reachable; flood_fill; .../ ia there other elements / 
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 02:33:00 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/20 03:57:32 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/21 20:07:11 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ void	check_error(char *filename)
 		ft_lstclear(&map, free);
 		exit (1);		
 	}
-	//check road function
 	ft_lstclear(&map, free);
 }
