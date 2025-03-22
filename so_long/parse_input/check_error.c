@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 02:33:00 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/21 20:07:11 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/22 02:22:14 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	check_error(char *filename)
 	if (!valid_map(map))
 	{
 		ft_lstclear(&map, free);
-		exit (1);		
+		exit (1);
 	}
 	ft_lstclear(&map, free);
 }

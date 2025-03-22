@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 03:37:44 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/20 03:54:10 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/22 02:39:10 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	straight_lines(t_list *map)
 	while (map)
 	{
 		if (line_len(map->content) != len)
-			return (print_error("lines are not straight111\n"));
+			return (print_error("lines are not straight\n"));
 		map = map->next;
 	}
 	return (1);
@@ -39,14 +39,35 @@ int	validate_walls(t_list *map)
 	while (first[i] && first[i] != '\n')
 	{
 		if (first[i] != '1' || last[i] != '1')
-			return (print_error("not arounded by walls111\n"));
+			return (print_error("not arounded by walls\n"));
 		i++;
 	}
 	while (map->next)
 	{
 		line = map->content;
 		if (line[0] != '1' || line[ft_strlen(line) - 2] != '1')
-			return (print_error("not arounded by walls222\n"));
+			return (print_error("not arounded by walls\n"));
+		map = map->next;
+	}
+	return (1);
+}
+
+int	has_stranger_element(t_list *map)
+{
+	int		i;
+	char	*line;
+	
+	while (map)
+	{
+		line = map->content;
+		i = 0;
+		while (line[i])
+		{
+			if (line[i] != 'P' && line[i] != 'E' && line[i] != 'C'
+					&& line[i] != '0' && line[i] != '1' && line[i] != '\n')
+				return (print_error("map contain stranger element\n"));
+			i++;
+		}
 		map = map->next;
 	}
 	return (1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 22:52:04 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/20 03:16:00 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/22 02:07:22 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,3 +68,16 @@ int	line_len(char *line)
 		i++;
 	return (i);
 }
+
+void	free_arr(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+		i++;
+	while (i)
+		free (arr[--i]);
+	free (arr);
+}
+
