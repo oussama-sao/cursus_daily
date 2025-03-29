@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 22:52:04 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/22 02:07:22 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/28 06:06:15 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ void	free_arr(char **arr)
 	while (i)
 		free (arr[--i]);
 	free (arr);
+	arr = NULL;
 }
 

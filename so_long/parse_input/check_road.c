@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_road.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 20:08:12 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/22 02:56:41 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/29 02:10:15 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	flood_fill(char **map, int x, int y, t_map size)
 {
 	if (x < 0 || y < 0 || y >= size.width || x >= size.height ||
-			map[x][y] == 'v' || map[x][y] == '1')
+			map[x][y] == 'v' || map[x][y] == '1') // || map[x][y] == 'E'
 		return ;
 	map[x][y] = 'v';
 	flood_fill(map, x + 1, y, size);
@@ -65,6 +65,7 @@ t_player	find_player(char **map)
 		}
 		x++;
 	}
+	return (position);
 }
 
 int	validate_flood_fill(char **map, t_map size)
@@ -100,5 +101,5 @@ int	validate_road(t_list *map)
 	if (!validate_flood_fill(arr, size))
 		return (free_arr(arr), 0);
 	free_arr(arr);
-	return (1);		
+	return (1);
 }

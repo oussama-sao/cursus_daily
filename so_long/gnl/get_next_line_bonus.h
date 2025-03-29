@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 23:40:49 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/20 01:22:50 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/28 20:40:32 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 41
 # endif
 
 # ifndef MAX_FD

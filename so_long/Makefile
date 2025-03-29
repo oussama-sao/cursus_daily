@@ -1,5 +1,7 @@
 # Source files
-SRC_FILES = mlx_test.c  # Add your source files here
+SRC_FILES =  main.c  game/map.c game/render.c parse_input/check_error.c \
+		parse_input/check_road.c  parse_input/errors.c  parse_input/parse_utils.c \
+		parse_input/valid_map.c gnl/get_next_line_bonus.c gnl/get_next_line_utils_bonus.c 
 
 # Include directories
 LIBFT_DIR = libft
