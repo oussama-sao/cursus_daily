@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 02:22:33 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/29 02:09:34 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/30 04:34:10 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,7 @@ void load_map(t_game *game)
     game->map_width = size.width - 1;
     game->map_height = size.height;
 	ft_lstclear(&map1, free);
+	game->coins_count = count_collectables(game->map);
+	game->pos = find_player(game->map);
+	game->move_count = 1;
 }
-

@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 01:44:02 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/29 02:09:21 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/30 06:16:57 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 void	load_element_from_xpm(t_game *game)
 {
-	game->wall = mlx_xpm_file_to_image(game->mlx, "assets/wallxpm.xpm", &game->img_width, &game->img_height);
-	game->floor = mlx_xpm_file_to_image(game->mlx, "assets/floor.xpm", &game->img_width, &game->img_height);
-	game->player = mlx_xpm_file_to_image(game->mlx, "assets/player.xpm", &game->img_width, &game->img_height);
-	game->collectable = mlx_xpm_file_to_image(game->mlx, "assets/collectable.xpm", &game->img_width, &game->img_height);
-	game->exit = mlx_xpm_file_to_image(game->mlx, "assets/exitopen.xpm", &game->img_width, &game->img_height);
-	if (!game->player || !game->collectable || !game->floor  || !game->exit || !game->wall)// || !game->wall || !game->floor || !game->exit || !game->collectable 
+	game->wall = xpm_file(game, "assets/wall.xpm");
+	game->floor = xpm_file(game, "assets/floor.xpm");
+	game->player = xpm_file(game, "assets/player.xpm");
+	game->collectable = xpm_file(game, "assets/collectable.xpm");
+	game->exit = xpm_file(game, "assets/exitclose.xpm");
+	if (!game->player || !game->collectable || !game->floor
+			|| !game->exit || !game->wall) 
 	{
 		print_error("loading textures error\n");
 		exit (1);
@@ -46,7 +47,6 @@ int	exit_game(t_game *game)
 		mlx_destroy_display(game->mlx);
 		free(game->mlx);
 	}
-
 	free_arr(game->map);
 	exit(0);
 	return (0);
