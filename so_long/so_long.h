@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 02:40:16 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/30 06:49:05 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/31 07:03:14 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ typedef struct t_map
 	int	width;
 }	t_map;
 
+typedef struct t_floodfill
+{
+	t_map	size;
+	int		exit_reached;
+}	t_floodfill;
+
 typedef struct t_player
 {
 	int	x;
@@ -30,10 +36,10 @@ typedef struct t_player
 }	t_player;
 
 void		check_error(char *filename);
-void		flood_fill(char **map, int x, int y, t_map size);
+void		flood_fill(char **map, int x, int y, t_floodfill *data);
 char		**map_to_array(t_list *map, t_map size);
 t_player	find_player(char **map);
-int			validate_flood_fill(char **map, t_map size);
+int			validate_flood_fill(char **map, t_floodfill *data);
 int			validate_road(t_list *map);
 void		valid_name(char *filename);
 int			valid_map(t_list *map);
@@ -65,6 +71,8 @@ typedef struct t_game
 	t_player	pos;
 	int			coins_count;
 	int			move_count;
+	int			screen_height;
+	int			screen_width;
 }	t_game;
 
 void		load_element_from_xpm(t_game *game);
@@ -79,5 +87,6 @@ void		update_exit_image(t_game *game);
 int			can_move_to(t_game *game, int x, int y);
 void		update_map(t_game *game, int new_x, int new_y);
 void		update_player_view(t_game *game, int dx, int dy);
+int			clear_mlx(t_game *game);
 
 #endif

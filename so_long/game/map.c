@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 01:44:02 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/30 06:16:57 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/31 06:59:52 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int	exit_game(t_game *game)
 		mlx_destroy_image(game->mlx, game->collectable);
 	if (game->exit)
 		mlx_destroy_image(game->mlx, game->exit);
-
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	if (game->mlx)

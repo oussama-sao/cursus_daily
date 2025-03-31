@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 03:41:10 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/30 07:04:03 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/31 06:44:30 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	update_player_view(t_game *game, int dx, int dy)
 {
 	mlx_destroy_image(game->mlx, game->player);
-
 	if (dx == 0 && dy == -1)
 		game->player = xpm_file(game, "assets/player.xpm");
 	else if (dx == 0 && dy == 1)
@@ -56,7 +55,7 @@ void	move_player(t_game *game, int dx, int dy)
 		return;
 	printf("move %d\n", game->move_count++);
 	update_map(game, new_x, new_y);
-	update_player_view(game, dx, dy);
+	// update_player_view(game, dx, dy);
 	mlx_clear_window(game->mlx, game->win);
 	render_map(game);
 }

@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 03:27:57 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/30 06:28:54 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/31 07:02:38 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,16 @@ int	can_move_to(t_game *game, int x, int y)
 	if (tile == 'E' && game->coins_count > 0)
 		return (0);
 	return (1);
+}
+
+int	clear_mlx(t_game *game)
+{
+	if (game->mlx)
+	{
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+	}
+	free_arr(game->map);
+	exit(0);
+	return (0);
 }

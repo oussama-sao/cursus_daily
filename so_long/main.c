@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 02:51:48 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/30 07:29:19 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/03/31 07:03:21 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ int	main(int argc, char **argv)
 		game.mlx = mlx_init();
 		game.filename = argv[1];
 		load_map(&game);
+		game.screen_width = 0;
+		game.screen_height = 0;
+		mlx_get_screen_size(game.mlx, &game.screen_width, &game.screen_height);
+		if (game.map_height * 55 > game.screen_height ||
+				game.map_width * 55 > game.screen_width)
+		{
+			ft_putstr_fd("Error: Map is too big for the screen!\n", 2);
+			clear_mlx(&game);
+		}
 		load_element_from_xpm(&game);
 		game.win = mlx_new_window(game.mlx, game.map_width * 55,
 			game.map_height * 55, "so_long");
@@ -33,6 +42,5 @@ int	main(int argc, char **argv)
 	}
 }
 //(add playerup playerdown xpm)
-//floodfill issue
 //norminette
 //bonus
