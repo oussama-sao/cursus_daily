@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:32:41 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/20 01:02:55 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/04/04 19:56:16 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,3 @@ char	*ft_strjoin_and_free(char *s1, char *s2)
 	free (s1);
 	return (result);
 }
-

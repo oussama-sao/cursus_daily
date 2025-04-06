@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 03:37:44 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/22 02:39:10 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/05 22:46:32 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ int	straight_lines(t_list *map)
 	int		len;
 
 	len = line_len(map->content);
-	while (map)
+	while (map->next)
 	{
 		if (line_len(map->content) != len)
 			return (print_error("lines are not straight\n"));
 		map = map->next;
 	}
+	if ((int)ft_strlen(map->content) != len)
+		return (print_error("last line size error\n"));
 	return (1);
 }
 
@@ -56,7 +58,7 @@ int	has_stranger_element(t_list *map)
 {
 	int		i;
 	char	*line;
-	
+
 	while (map)
 	{
 		line = map->content;
@@ -64,7 +66,7 @@ int	has_stranger_element(t_list *map)
 		while (line[i])
 		{
 			if (line[i] != 'P' && line[i] != 'E' && line[i] != 'C'
-					&& line[i] != '0' && line[i] != '1' && line[i] != '\n')
+				&& line[i] != '0' && line[i] != '1' && line[i] != '\n')
 				return (print_error("map contain stranger element\n"));
 			i++;
 		}
@@ -79,8 +81,8 @@ int	validate_element(t_list *map)
 
 	count = 0;
 	count = search_element(map, 'P');
-		if (count != 1)
-			return (print_error("player error !!\n"));
+	if (count != 1)
+		return (print_error("player error !!\n"));
 	count = search_element(map, 'E');
 	if (count != 1)
 		return (print_error("exit door error !!\n"));

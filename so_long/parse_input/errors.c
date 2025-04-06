@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 02:34:56 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/22 22:31:04 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/04/05 17:44:10 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ void	valid_name(char *filename)
 		i++;
 	i -= 4;
 	if (ft_strncmp(filename + i, ".ber", 4))
+	{
+		print_error("file extension error\n");
 		exit (1);
+	}
 }
 
 int	valid_map(t_list *map)

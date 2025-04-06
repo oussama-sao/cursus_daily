@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 03:41:10 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/31 06:44:30 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/04/05 22:54:51 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ void	update_player_view(t_game *game, int dx, int dy)
 
 void	update_map(t_game *game, int new_x, int new_y)
 {
-	char *tile = &game->map[new_x][new_y];
+	char	*tile;
 
+	tile = &game->map[new_x][new_y];
 	if (*tile == 'C')
 	{
 		game->coins_count--;
@@ -48,14 +49,15 @@ void	update_map(t_game *game, int new_x, int new_y)
 
 void	move_player(t_game *game, int dx, int dy)
 {
-	int new_x = game->pos.x + dx;
-	int new_y = game->pos.y + dy;
+	int	new_x;
+	int	new_y;
 
+	new_x = game->pos.x + dx;
+	new_y = game->pos.y + dy;
 	if (!can_move_to(game, new_x, new_y))
-		return;
+		return ;
 	printf("move %d\n", game->move_count++);
 	update_map(game, new_x, new_y);
-	// update_player_view(game, dx, dy);
 	mlx_clear_window(game->mlx, game->win);
 	render_map(game);
 }
@@ -74,3 +76,5 @@ int	handle_keypress(int keycode, t_game *game)
 		move_player(game, 0, 1);
 	return (0);
 }
+
+// update_player_view(game, dx, dy); line61

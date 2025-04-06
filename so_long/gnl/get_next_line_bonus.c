@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 23:45:34 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/20 00:59:28 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/04/05 18:03:58 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 char	*get_text(int fd, char *text)
 {
-	int		i;
-	char	*buffer;
-
-	buffer = malloc((size_t)BUFFER_SIZE + 1);
+	char *(buffer) = malloc((size_t)BUFFER_SIZE + 1);
+	int (i) = 1;
 	if (!buffer)
 		return (NULL);
-	i = 1;
 	while (i > 0)
 	{
 		i = read (fd, buffer, BUFFER_SIZE);

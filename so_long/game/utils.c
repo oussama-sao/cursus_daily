@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 03:27:57 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/31 07:02:38 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/04/04 19:51:51 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int	count_collectables(char **map)
 
 void	*xpm_file(t_game *game, char *path)
 {
-		return (mlx_xpm_file_to_image(game->mlx, path,
-										   &game->img_width, &game->img_height));
+	return (mlx_xpm_file_to_image(game->mlx, path,
+			&game->img_width, &game->img_height));
 }
 
 void	update_exit_image(t_game *game)
@@ -56,8 +56,9 @@ void	update_exit_image(t_game *game)
 
 int	can_move_to(t_game *game, int x, int y)
 {
-	char tile = game->map[x][y];
+	char	tile;
 
+	tile = game->map[x][y];
 	if (tile == '1')
 		return (0);
 	if (tile == 'E' && game->coins_count > 0)

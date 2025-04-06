@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 22:52:04 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/28 06:06:15 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/04/05 17:47:39 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	search_element(t_list *map, char element)
 
 int	print_error(char *str)
 {
-	ft_putstr_fd("Error\n",  2);
+	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(str, 2);
 	return (0);
 }
@@ -48,7 +48,10 @@ void	read_map(char *filename, t_list **lst)
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
+	{
+		print_error("file does not exist\n");
 		exit (1);
+	}
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -81,4 +84,3 @@ void	free_arr(char **arr)
 	free (arr);
 	arr = NULL;
 }
-

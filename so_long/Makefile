@@ -1,42 +1,37 @@
-# Source files
 SRC_FILES =  main.c  game/map.c game/render.c game/move.c game/utils.c parse_input/check_error.c \
 		parse_input/check_road.c  parse_input/errors.c  parse_input/parse_utils.c \
 		parse_input/valid_map.c gnl/get_next_line_bonus.c gnl/get_next_line_utils_bonus.c 
 
-# Include directories
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
-MLX_DIR = minilibx-linux
-MLX_LIB = $(MLX_DIR)/libmlx_Linux.a
 
-# Compiler and flags
-CC = cc
-CFLAGS = -Wall #-Wextra -Werror
-LDFLAGS = -L$(MLX_DIR) -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz
-
-# Output executable
+AR = ar scr
+CC = cc -I/usr/include -Imlx_linux -O3
+RM = rm  -rf
+FLAGS = -Werror -Wextra -Wall
+LDFLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 NAME = so_long
+SRC_OBJ = $(SRC_FILES:.c=.o)
 
-# Object files
-OBJ = $(SRC_FILES:.c=.o)
+all : $(NAME)
 
-# Make rules
-all: $(NAME)
+$(LIBFT) :
+		make bonus -C $(LIBFT_DIR)
 
-$(NAME): $(OBJ) $(LIBFT) $(MLX_LIB)
-	$(CC) $(OBJ) $(LIBFT) $(MLX_LIB) -o $(NAME) $(LDFLAGS)
+$(NAME) : $(SRC_OBJ) $(LIBFT)
+		$(CC) $(FLAGS) $(SRC_OBJ) $(LIBFT) $(LDFLAGS) -o $(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I$(MLX_DIR) -I$(LIBFT_DIR) -c $< -o $@
+%.o : %.c
+		$(CC) $(FLAGS) -c $^ -o $@
 
-clean:
-	rm -f $(OBJ)
-	make -C $(LIBFT_DIR) clean
+clean :
+		$(RM) $(SRC_OBJ)
+		make -C $(LIBFT_DIR) clean
 
-fclean: clean
-	rm -f $(NAME)
-	make -C $(LIBFT_DIR) fclean
+fclean : clean
+		$(RM) $(NAME)
+		make -C $(LIBFT_DIR) fclean
 
-re: fclean all
+re : fclean all
 
-.PHONY: all clean fclean re
+.PHONY : all clean fclean re

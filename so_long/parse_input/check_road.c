@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 20:08:12 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/31 06:35:03 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/04/04 20:03:25 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	flood_fill(char **map, int x, int y, t_floodfill *data)
 {
-	if (x < 0 || y < 0 || y >= data->size.width || x >= data->size.height ||
-			map[x][y] == 'v' || map[x][y] == '1') // || map[x][y] == 'E'
+	if (x < 0 || y < 0 || y >= data->size.width || x >= data->size.height
+		|| map[x][y] == 'v' || map[x][y] == '1')
 		return ;
 	if (map[x][y] == 'E')
 	{
@@ -29,7 +29,7 @@ void	flood_fill(char **map, int x, int y, t_floodfill *data)
 	flood_fill(map, x, y - 1, data);
 }
 
-char	**	map_to_array(t_list *map, t_map size)
+char	**map_to_array(t_list *map, t_map size)
 {
 	int		i;
 	char	**arr;

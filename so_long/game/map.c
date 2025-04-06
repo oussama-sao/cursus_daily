@@ -6,7 +6,7 @@
 /*   By: oessaoud <oessaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 01:44:02 by oessaoud          #+#    #+#             */
-/*   Updated: 2025/03/31 06:59:52 by oessaoud         ###   ########.fr       */
+/*   Updated: 2025/04/04 19:55:28 by oessaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	load_element_from_xpm(t_game *game)
 	game->collectable = xpm_file(game, "assets/collectable.xpm");
 	game->exit = xpm_file(game, "assets/exitclose.xpm");
 	if (!game->player || !game->collectable || !game->floor
-			|| !game->exit || !game->wall) 
+		|| !game->exit || !game->wall)
 	{
 		print_error("loading textures error\n");
 		exit (1);
